@@ -1,0 +1,101 @@
+import React, { useEffect, useState } from 'react'
+import './Navbar1.scss';
+
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import { BsSearch } from 'react-icons/bs';
+import { AiOutlineHeart } from 'react-icons/ai';
+import { BsBag } from 'react-icons/bs';
+import Basket from '../Main Page/Basket/Basket';
+import { Link } from 'react-router-dom';
+import { FaUserAlt } from 'react-icons/fa';
+import { useDispatch, useSelector } from 'react-redux'
+import { checkIsAuth, logout } from '../Config/BasketSlice'
+import { toast } from 'react-toastify'
+
+
+
+
+export default function Navbar1() {
+  const[display,setDisplay]=useState(false)
+  const [wish,setWish] = useState([])
+  const [user,setUser] = useState([])
+  const active=JSON.parse(sessionStorage.getItem('userlogin'))
+  const dispatch = useDispatch()
+
+
+  const [basket,setWBasket] = useState([])
+  const COUNT=useSelector(state=>state.basketitem.count)
+  const FAV=useSelector(state=>state.basketitem.favcount)
+  useEffect(()=>{
+    let userWish = JSON.parse( localStorage.getItem('user'))
+    setWish(userWish?.userwishlist)
+    setUser(userWish?.username)
+    setWBasket(userWish?.usercheckout)
+    // console.log(user);
+
+
+},[])
+  const logoutHandler = () => {
+    sessionStorage.setItem('userlogin',JSON.stringify(false))
+    window.location.reload()
+  
+      window.localStorage.removeItem("user")
+      toast('You are logged out')
+  }
+
+
+  return (
+    <div className='navbar1'>
+      <div className='top-navbar'>
+      <Container>
+        <Row>
+          <Col sm={2}>
+            <div className="logo">
+             <Link to={"/"}>
+             <img src="https://preview.colorlib.com/theme/fashi/img/logo.png.webp" /></Link>
+            
+            </div>
+          </Col>
+          <Col sm={7}>
+            <div className="advanced-search">
+              <div className="group">
+                <input type="text" placeholder="What do you need?" />
+                <button type="button">
+                    <div>
+
+                 <BsSearch/>
+                    </div>
+                </button>
+              </div>
+            </div>
+          </Col>
+          <Col sm={3}>
+            <div className='icons'>
+                <ul>
+                    <li><Link to={'Saveditems'}><AiOutlineHeart/><sup className='fav'><span>{FAV }</span></sup></Link></li>
+                    <li onClick={()=>{setDisplay(!display)}}><BsBag/><sup className='basket'><span>{COUNT}</span></sup></li>
+                    <li><div className='login-panel'><FaUserAlt/> {active===true ? (
+                    <Link className='user' onClick={logoutHandler}>Log Out-{user}</Link>
+                ) : (
+                    <Link to={'login'}> Log In </Link>
+                )}</div>
+               
+                    <div>
+            </div></li>
+
+                </ul>
+            </div>
+            <div className={ display ? 'basketactiveee' :'bag'} >
+            <Basket/>
+
+            </div>
+          </Col>
+        </Row>
+      </Container>
+
+      </div>
+    </div>
+  );
+}
