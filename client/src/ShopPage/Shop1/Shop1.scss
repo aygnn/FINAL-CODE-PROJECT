@@ -193,6 +193,7 @@
         position: relative;
 
         .pic {
+            cursor: pointer;
             width: 282px;
             transition: 0.5s ease-in-out;
             height: 344px;
@@ -341,7 +342,14 @@
                     ul{
                         display: flex;
                         align-items: center;
+                        li{
+                            a{
+                                font-size: 14px;
+                            }
+                        }
                     }
+                   
+                        
                 }
             }
         }
@@ -361,6 +369,13 @@
                 .item{
                     .pic{
                         width: 100%;
+                        ul{
+                            li{
+                                a{
+                                    font-size: 14px;
+                                }
+                            }
+                        }
                     }
                 }
             }

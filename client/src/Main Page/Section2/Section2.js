@@ -11,7 +11,6 @@ export default function Section2() {
   function handleSubmit() {
  searchParams.get('gender');
  
-  // console.log(searchParams);
 }
   return (
     <div className="section2">
@@ -21,7 +20,6 @@ export default function Section2() {
           <Link to={'/Shop?gender=man'} onClick={handleSubmit}>
             <div className="card1">
               <img src="https://preview.colorlib.com/theme/fashi/img/banner-1.jpg.webp" />
-              {/* <div className='square'></div> */}
               <div className='text'><h4>Men's</h4></div>
             </div>
 

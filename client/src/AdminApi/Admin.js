@@ -15,9 +15,6 @@ import {Helmet} from 'react-helmet'
 
 const Add = Yup.object().shape({
   image1: Yup.string().required("Image link is required"),
-  img: Yup.string().required("Image link is required"),
-  // img: Yup.string().required("Image link is required"),
-  // img: Yup.string().required("Image link is required"),
   // img: Yup.string().required("Image link is required"),
   gender: Yup.string().required(),
   type: Yup.string().required("Type is required"),
@@ -33,6 +30,9 @@ const Add = Yup.object().shape({
     size3: Yup.string().required(),
     size4: Yup.string().required(),
 
+  }),
+  image:Yup.object().shape({
+    img: Yup.string().required("Image link is required")
   })
 });
 export default function Admin() {
@@ -61,10 +61,6 @@ export default function Admin() {
               <Formik
                 initialValues={{
                   image1: "",
-                  img: "",
-                  img: "",
-                  img: "",
-                  img: "",
                   gender: "",
                   type: "",
                   product_details: "",
@@ -78,6 +74,12 @@ export default function Admin() {
                     size3: "",
                     size4: "",
                   },
+                  image:{
+                    img:'',
+                    img:'',
+                    img:'',
+                    img:'',
+                  }
                 }}
                 validationSchema={Add}
                 validateOnBlur={false}
@@ -107,8 +109,8 @@ export default function Admin() {
                             <RiErrorWarningFill />
                           </div>
                         )}
-                        <Field placeholder="Image1 link" name="img" />
-                        {errors.img && touched.img && (
+                        <Field placeholder="Image1 link" name="image.img" />
+                        {errors.image?.img && touched.image?.img && (
                           <div className="warning">
                             <RiErrorWarningFill />
                           </div>
@@ -120,12 +122,12 @@ export default function Admin() {
                       <div
                         className="image"
                         style={
-                          errors.img &&
-                          touched.img && { borderColor: "red" }
+                          errors.image?.img&&
+                          touched.image?.img && { borderColor: "red" }
                         }
                       >
-                        <Field className='input' placeholder="Image2 link" name="img" />
-                        {errors.img && touched.img && (
+                        <Field className='input' placeholder="Image2 link" name="image.img" />
+                        {errors.image?.img && touched.image?.img && (
                           <div className="warning">
                             <RiErrorWarningFill />
                           </div>
@@ -136,12 +138,12 @@ export default function Admin() {
                       <div
                         className="image"
                         style={
-                          errors.img &&
-                          touched.img && { borderColor: "red" }
+                          errors.image?.img &&
+                          touched.image?.img && { borderColor: "red" }
                         }
                       >
-                        <Field  className='input'  placeholder="Image3 link" name="img" />
-                        {errors.img && touched.img && (
+                        <Field  className='input'  placeholder="Image3 link" name="image.img" />
+                        {errors.image?.img && touched.image?.img && (
                           <div className="warning">
                             <RiErrorWarningFill />
                           </div>
@@ -151,12 +153,12 @@ export default function Admin() {
                       <div
                         className="image"
                         style={
-                          errors.img &&
-                          touched.img && { borderColor: "red" }
+                          errors.image?.img &&
+                          touched.image?.img && { borderColor: "red" }
                         }
                       >
-                        <Field className='input'  placeholder="Image4 link" name="img" />
-                        {errors.img && touched.img && (
+                        <Field className='input'  placeholder="Image4 link" name="image.img" />
+                        {errors.image?.img && touched.image?.img && (
                           <div className="warning">
                             <RiErrorWarningFill />
                           </div>
@@ -173,7 +175,7 @@ export default function Admin() {
                         }
                       >
                         <label>
-                          Male
+                          Man
                           <Field className='input'  type="radio" name="gender" value="man" />
                         </label>
                       </span>
@@ -186,8 +188,20 @@ export default function Admin() {
                         }
                       >
                         <label>
-                          Female
+                          Woman
                           <Field className='input'  type="radio" name="gender" value="woman" />
+                        </label>
+                      </span>
+                      <span
+                        className="radio"
+                        style={
+                          errors.gender &&
+                          touched.gender && { borderColor: "red" }
+                        }
+                      >
+                        <label>
+                          Kids
+                          <Field className='input'  type="radio" name="gender" value="kids" />
                         </label>
                       </span>
                     </div>

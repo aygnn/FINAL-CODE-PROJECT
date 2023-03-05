@@ -76,7 +76,7 @@
                     line-height: 1.25;
                     // margin: 0;
                     min-height: 3rem;
-                    padding: 11px 66px 11px;
+                    padding: 5px 66px 10px;
                     position: relative;
                     text-decoration: none;
                     transition: all 250ms;
@@ -100,6 +100,7 @@
                   
                   .button-6:hover {
                     transform: translateY(-1px);
+                    color: #e7ab3c;
                   }
                   
                   .button-6:active {
@@ -333,7 +334,7 @@
         
                     }
                     a{
-                        margin-left: 17%;
+                        margin-left: 18.5%;
                        
                         color: #999;
                         border: 2px solid #999;

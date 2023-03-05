@@ -3,7 +3,6 @@ import { Col, Container, Row } from "react-bootstrap";
 import "./Shop1.scss";
 import { FaHome } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { BsHeart } from "react-icons/bs";
 import { HiOutlineShoppingBag } from "react-icons/hi";
 import axios from "axios";
 import InputLabel from "@mui/material/InputLabel";
@@ -17,7 +16,6 @@ import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import { Helmet } from "react-helmet";
 import Form from "react-bootstrap/Form";
-
 import { useDispatch } from "react-redux";
 import useQuery from "./useQuery";
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
@@ -227,9 +225,7 @@ if(checked===false){
 
                       )
                     }
-                    
-
-})}
+                    })}
                 </ul>
               </div>
 

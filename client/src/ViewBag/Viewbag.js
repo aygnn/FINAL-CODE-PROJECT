@@ -35,7 +35,6 @@ export default function Viewbag() {
     if(basket.length===0){
       alert('You must add some product to basket!')
       navigate('/Shop')
-      console.log('salam');
       
     }
     else{
@@ -82,9 +81,9 @@ export default function Viewbag() {
                   </div>
                   <div className="text-empty">
                     <h2>Your Bag is Empty</h2>
-                    <button className="button-6">
-                      <Link to={"/Shop"}>Continue shopping</Link>
-                    </button>
+                    <Link to={"/Shop"}>
+                    <button className="button-6">Continue shopping </button>
+                  </Link>
                   </div>
                 </div>
               ) : (
@@ -95,12 +94,11 @@ export default function Viewbag() {
                       positionTransition
                       initial={{ opacity: 0, y: 50, scale: 0.3 }}
                       animate={{ opacity: 1, y: 0, scale: 1 }}
-                      // exit={{ opacity: 0, scale: 0.5, transition: { duration: 0.3 } }}
                     >
                       <div className="bag-item" key={item.dataa._id}>
                         <div className="bag-left">
                           <img
-                            /*onClick={() => handleDetail(item.dataa._id)}*/ src={
+                           src={
                               item.dataa.image1
                             }
                           />

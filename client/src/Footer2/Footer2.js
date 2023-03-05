@@ -5,14 +5,28 @@ import { GrFacebookOption } from "react-icons/gr";
 import { AiOutlineInstagram,AiOutlineTwitter } from "react-icons/ai";
 import { IoLogoPinterest } from "react-icons/io";
 import { Link } from 'react-router-dom';
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
 
 export default function Footer2() {
+
+  const notify = () =>toast.info('We will inform you about the updates as soon as possible!', {
+    position: "top-right",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "light",
+    })
   return (
+
     <div className="footer2">
+        <ToastContainer />
       <Container>
         <Row>
           <Col sm={3}>
@@ -87,7 +101,7 @@ export default function Footer2() {
               <form>
                 <div>
                 <input type="text" placeholder="Enter Your Mail" />
-                <button>Subscribe</button>
+                <button onClick={notify}>Subscribe</button>
 
                 </div>
               </form>

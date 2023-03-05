@@ -155,9 +155,10 @@
 }
 
 .radio-wrapper {
-    display: flex;
-    justify-content: center;
+     display: flex;
     width: 223px;
+    flex-direction: column;
+    flex-wrap: wrap;
 
   .radio {
        background-color: #fff;

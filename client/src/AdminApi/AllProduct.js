@@ -44,9 +44,9 @@ export default function AllProduct() {
             <Button variant="outlined" onClick={()=>handleDelete(item._id)} >
         Delete
       </Button>
-      <Button variant="contained"  onClick={()=>handleDetail(item._id)}>
+      {/* <Button variant="contained"  onClick={()=>handleDetail(item._id)}>
         Detail
-      </Button>
+      </Button> */}
                     </Stack>
            
         </div>

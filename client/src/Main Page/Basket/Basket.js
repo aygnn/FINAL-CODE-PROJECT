@@ -8,21 +8,30 @@ import { deleteitem } from "../../Config/BasketSlice";
 export default function Basket() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  // const [total,setTotal]=useState(0)
   const [basket, setBasket] = useState([]);
-
-  // const BASKET=useSelector(state=>state.basketitem.value)
   const COUNT = useSelector((state) => state.basketitem.count);
   const TOTAL = useSelector((state) => state.basketitem.total);
+  let userBasket
   useEffect(() => {
-    let userBasket = JSON.parse(localStorage.getItem("user"));
+  userBasket = JSON.parse(localStorage.getItem("user"));
     setBasket(userBasket ? userBasket.usercheckout : []);
-    // setTotal(userBasket?.subtotal)
   }, [COUNT]);
+  
+  const handleCheckout=()=>{
+    if(basket.length===0){
+      alert('You must add some product to basket!')
+      navigate('/Shop')
+      
+    }
+    else{
+      navigate('/checkout')
+
+    }
+
+  }
 
   const handleDelete = (item) => {
     dispatch(deleteitem(item));
-    // console.log(item);
   };
   const handleDetail = (id) => {
     navigate(`/view/${id}`);
@@ -98,9 +107,9 @@ export default function Basket() {
           </Link>
         </div>
         <div className="checkout">
-          <Link to={"checkout"}>
+          <p onClick={handleCheckout}>
             <span>Checkout</span>
-          </Link>
+          </p>
         </div>
       </div>
     </div>

@@ -93,13 +93,12 @@ const handleDetail=(id)=>{
   useEffect(() => {
     getProducts();
   }, []);
-  // console.log(products);
 
 
   
   return (
     <div className="section3">
-                              <ToastContainer />
+     <ToastContainer />
 
       <Container>
         <Row>
