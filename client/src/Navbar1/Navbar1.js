@@ -8,11 +8,12 @@ import { BsSearch } from 'react-icons/bs';
 import { AiOutlineHeart } from 'react-icons/ai';
 import { BsBag } from 'react-icons/bs';
 import Basket from '../Main Page/Basket/Basket';
-import { Link } from 'react-router-dom';
+import { Link,useSearchParams,useLocation } from 'react-router-dom';
 import { FaUserAlt } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux'
 import { checkIsAuth, logout } from '../Config/BasketSlice'
 import { toast } from 'react-toastify'
+import Search from './Search';
 
 
 
@@ -23,11 +24,10 @@ export default function Navbar1() {
   const [user,setUser] = useState([])
   const active=JSON.parse(sessionStorage.getItem('userlogin'))
   const dispatch = useDispatch()
-
-
   const [basket,setWBasket] = useState([])
   const COUNT=useSelector(state=>state.basketitem.count)
   const FAV=useSelector(state=>state.basketitem.favcount)
+  
   useEffect(()=>{
     let userWish = JSON.parse( localStorage.getItem('user'))
     setWish(userWish?.userwishlist)
@@ -70,6 +70,7 @@ export default function Navbar1() {
                 </button>
               </div>
             </div> */}
+            {/* <Search  postQuery={postQuery} latest={latest} setSearchParams={setSearchParams}/> */}
           </Col>
           <Col sm={3}>
             <div className='icons'>

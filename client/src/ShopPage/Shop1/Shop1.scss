@@ -49,8 +49,12 @@
         }
 
         .filter {
-            text-align: left;
-            margin-bottom: 45px;
+               text-align: left;
+    padding: 10px;
+    margin-bottom: 45px;
+    border-radius: 4px;
+    background-color: #f3f3f3ab;
+    box-shadow: rgb(17 17 26 / 5%) 0px 4px 16px, rgb(17 17 26 / 5%) 0px 8px 32px;
         }
 
         h4 {
@@ -59,6 +63,15 @@
             font-size: 22px;
             font-weight: 700;
             margin-bottom: 26px;
+        }
+        h4::before{
+            position: absolute;
+            width: 123px;
+            height: 1px;
+            background: #e7ab3c;
+            content: "";
+            margin: 0 auto;
+            margin-top: 2%;
         }
 
         ul {
@@ -135,6 +148,12 @@
                 label {
                     // margin-left: 13px;
                     text-transform: capitalize;
+                    cursor: pointer;
+                }
+                label:hover{
+                    color:#e7ab3c ;
+                    font-size: 20px;
+                    transition: 0.3s all;
                 }
                 .circle{
                     width: 18px;
@@ -170,7 +189,9 @@
 
 .sorting {
     .sort {
-        width: 17%;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
     }
 }
 
@@ -185,6 +206,15 @@
         height: 500px;
         display: flex;
         align-items: center;
+    }
+    .spinner{
+        padding: 15%;
+        font-size: 20px;
+        gap: 30px;
+        span{
+            width: 20px !important;
+            height: 20px !important;
+        }
     }
 
     .item {
@@ -327,29 +357,39 @@
     }
 }
 @media screen and (max-width:769px){
-    .products{
-        gap: 42px;
-        .geyim{
-            .item{
-                width: 172px !important;
-                .pic{
-                    width: 200px;
-                    height: 254px;
-                    img{
-                        width: 100%;
-                        height: auto;
-                    }
-                    ul{
-                        display: flex;
-                        align-items: center;
-                        li{
-                            a{
-                                font-size: 14px;
+    .col-sm-9{
+        .sorting{
+            .sort{
+                width: 100%;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+            }
+        }
+        .products{
+            gap: 42px;
+            .geyim{
+                .item{
+                    width: 172px !important;
+                    .pic{
+                        width: 200px;
+                        height: 254px;
+                        img{
+                            width: 100%;
+                            height: auto;
+                        }
+                        ul{
+                            display: flex;
+                            align-items: center;
+                            li{
+                                a{
+                                    font-size: 14px;
+                                }
                             }
                         }
+                       
+                            
                     }
-                   
-                        
                 }
             }
         }
@@ -357,14 +397,42 @@
 }
 @media screen and (max-width:391px){
     .shopping{
+        .products-section{
+            h4::before{
+                margin-top: 8%;
+            }
+        }
         .row{
             width: 100%;
             .col-sm-3{
                 width: 50%;
-
+            
+                .color-choose{
+                    .cs-item{
+                        margin-left: 0;
+                    }
+                }
+                .gender{
+                    form{
+                        margin-left: 0;
+                    }
+                }
+                .fw-size-choose{
+                    margin-left: 0;
+                }
+            
             }
             .col-sm-9{
                 width: 50%;
+                .sort{
+                    flex-direction: column;
+                    padding-bottom: 20px;
+                    .price_sort{
+                        
+    margin-left: -27px;
+
+                    }
+                }
 
                 .item{
                     .pic{
@@ -382,6 +450,7 @@
         }
     }
 }
+
 
 
 .button-35 {

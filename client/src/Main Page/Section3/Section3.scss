@@ -260,7 +260,8 @@ body{
             margin-left: 7%;
         }
         .col-sm-8{
-            width: 100%;
+            // width: 100%;
+            display: none;
            .filter-control{
             margin-left: 120px;
             ul{
