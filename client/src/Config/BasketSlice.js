@@ -19,6 +19,7 @@ const initialState = {
   status: null,
   value: user?.usercheckout || [],
   count: counter,
+ 
   favstate: user?.userwishlist || [],
   favcount: user?.userwishlist.length || 0,
   total: subtotal /*.toPrecision((String(Math.floor(subtotal)).length)+2)*/,
@@ -131,6 +132,8 @@ const Basketslice = createSlice({
       } else {
         state.favstate.push({ dataa: actions.payload });
         state.favcount = state.favcount + 1;
+        
+   
 
         const fav = {
           username: user.username,

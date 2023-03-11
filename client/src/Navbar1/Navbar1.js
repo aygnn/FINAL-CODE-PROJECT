@@ -27,6 +27,18 @@ export default function Navbar1() {
   const [basket,setWBasket] = useState([])
   const COUNT=useSelector(state=>state.basketitem.count)
   const FAV=useSelector(state=>state.basketitem.favcount)
+
+
+  console.log(useLocation());
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const postQuery = searchParams.get('post') || '';
+  const latest = searchParams.has('latest');
+
+  const startsFrom = latest ? 80 : 1;
+
+
+
   
   useEffect(()=>{
     let userWish = JSON.parse( localStorage.getItem('user'))
@@ -70,7 +82,7 @@ export default function Navbar1() {
                 </button>
               </div>
             </div> */}
-            {/* <Search  postQuery={postQuery} latest={latest} setSearchParams={setSearchParams}/> */}
+            <Search  postQuery={postQuery} latest={latest} setSearchParams={setSearchParams}/>
           </Col>
           <Col sm={3}>
             <div className='icons'>

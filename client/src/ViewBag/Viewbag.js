@@ -20,8 +20,14 @@ import { CloseButton } from "../FavPage/CloseButton";
 export default function Viewbag() {
   const [fav, setFav] = useState("save-fav");
   const [notifications, setNotifications] = useState([0]);
+
+  const [active, setActive] = useState(null)
+
+
   const COUNT = useSelector((state) => state.basketitem.count);
   const TOTAL = useSelector((state) => state.basketitem.total);
+  const HEART = useSelector((state) => state.basketitem.heart);
+
   const [basket, setBasket] = useState([]);
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -52,6 +58,15 @@ export default function Viewbag() {
   };
   const handleFav = (item) => {
     dispatch(favitem(item));
+    setActive(item)
+    // basket.forEach(element => {
+    //   if(item._id===element.dataa._id){
+    //     setFav('save-active')
+    //     console.log(element);
+    //   }
+      
+      
+    // });
   };
   const handleIncrement = (product) => {
     dispatch(handleBasket(product));
@@ -138,10 +153,11 @@ export default function Viewbag() {
                             </span>
                           </div>
                           <div className="save">
-                            <button
-                              className={fav}
-                              onClick={() => {
-                                handleFav(item.dataa);
+
+                            
+                            <button className={active===item.dataa  ? "save-active" : "save-fav"}
+                               
+                               onClick={() => {handleFav(item.dataa);
                               }}
                             >
                               Save for later

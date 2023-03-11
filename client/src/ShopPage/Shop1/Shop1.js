@@ -42,13 +42,15 @@ export default function Shop1() {
   const [defaultt, setDefaultt] = useState([]);
   const [gender, setGender] = useState([]);
   const [age, setAge] = React.useState("");
+  const [active, setActive] = useState(null)
+
   let [loading, setLoading] = useState(true);
 
   useEffect(()=>{
      setLoading(true)
      setTimeout(()=>{
       setLoading(false)
-     },2000)
+     },3000)
   },[])
 
   console.log(useLocation());
@@ -113,6 +115,7 @@ if(checked===false){
   };
   const handleFav = (item) => {
     let userWish = JSON.parse(localStorage.getItem("user"));
+     setActive(item)
 
     if (userWish === null) {
       alert("You must login first!");
@@ -316,7 +319,7 @@ if(checked===false){
                     </Select>
                   </FormControl>
              
-            <Search  postQuery={postQuery} latest={latest} setSearchParams={setSearchParams}/>
+            {/* <Search  postQuery={postQuery} latest={latest} setSearchParams={setSearchParams}/> */}
                 </div>
             
 
@@ -344,7 +347,7 @@ if(checked===false){
                                         handleFav(item);
                                       }}
                                     >
-                                      <div className={fav}></div>
+                                      <div className={active===item  ? "favitem-active" : "favitem"} ></div>
                                     </div>
                                     <ul>
                                       <li
