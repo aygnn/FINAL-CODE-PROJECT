@@ -1,6 +1,6 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
-import "./admin.scss";
+import "./AddPage.scss";
 import { Formik, Field, Form } from "formik";
 import * as Yup from "yup";
 import TextField from "@mui/material/TextField";
@@ -10,6 +10,7 @@ import Button from "@mui/material/Button";
 import axios from 'axios'
 import AllProduct from "./AllProduct";
 import {Helmet} from 'react-helmet'
+import { Link } from "react-router-dom";
 
 
 
@@ -42,15 +43,20 @@ export default function Admin() {
   return (
 
     <div className="dashboard">
-         <Helmet>
+         {/* <Helmet>
     <title>Admin Page</title>
-      </Helmet>
+      </Helmet> */}
       {
         user && user?.isAdmin===true?
         <div>
-      <div className="navbar">
+      {/* <div className="navbar">
         <h4>Admin Dashboard</h4>
-      </div>
+
+        <div>
+          
+          <Link to={'users'}><h5>View Users</h5></Link>
+        </div>
+      </div> */}
       <Row>
         <Col sm={3}>
           <div className="add">

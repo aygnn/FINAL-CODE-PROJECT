@@ -10,7 +10,6 @@ import MainPage from './Main Page/MainPage';
 import Shopping from './ShopPage/Shop1/Shopping';
 import LoginPage from './Login/LoginPage';
 import RegisterPage from './Login/RegisterPage';
-import Admin from './AdminApi/Admin';
 import { Provider } from 'react-redux';
 import { store } from './Config/Store';
 import Detail from './Detail/Detail';
@@ -18,6 +17,9 @@ import Viewbag from './ViewBag/Viewbag';
 import Contact from './Contact/Contact';
 import Checkout from './Checkout/Checkout';
 import Favpage from './FavPage/Favpage';
+import Users from './AdminApi/Users';
+import Dashboard from './AdminApi/Dashboard';
+import AddPage from './AdminApi/AddPage';
 
 const router = createBrowserRouter([
   {
@@ -66,7 +68,20 @@ const router = createBrowserRouter([
   },
   {
     path: "/admin",
-    element: <Admin/>,
+    element: <Dashboard/>,
+    children:[
+      {
+        path: "/admin",
+        element: <AddPage/>,
+      },
+      {
+        path: "users",
+        element: <Users/>,
+      },
+      {
+
+      }
+    ]
   },
 ]);
 const root = ReactDOM.createRoot(document.getElementById('root'));

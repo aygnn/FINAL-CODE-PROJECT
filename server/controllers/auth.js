@@ -38,13 +38,15 @@ import validateInputs from '../helpers/auth/inputHelpers.js'
   sendJwttoClient(user,res)
 })
 
+//get users
 
 export const getUsers=Asyncerror(async(req,res,next)=>{
-  User.find({}, (err, docs) => {
+  User.find({}, (err, doc) => {
     if (!err) {
-      res.send(docs);
+      res.send(doc);
     } else {
       res.status(404).json({ message: err });
+      res.send({ message: "not found" });
     }
   })
 })

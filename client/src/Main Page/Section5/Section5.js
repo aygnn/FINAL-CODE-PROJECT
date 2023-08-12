@@ -12,7 +12,7 @@ export default function Section5() {
 
     
 
-      <Reveal effect="fadeInUp">
+      <Reveal className="celebrity" effect="fadeInUp">
 
       <div className="customers">
         <div className="customer img1">

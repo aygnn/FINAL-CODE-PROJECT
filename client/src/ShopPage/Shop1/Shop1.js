@@ -65,8 +65,6 @@ export default function Shop1() {
   const query = useQuery();
 
   query.get("gender");
-
-
   useEffect(() => {
     if (query.get("gender")) {
       setGender([...gender, query.get("gender")]);
@@ -89,6 +87,7 @@ setChecked(false)
 if(checked===false){
   setChecked(true)
 }
+console.log(checked);
   };
   
   const handleGender2 = (item) => {
